@@ -6,23 +6,26 @@
 
 <a name="module_reduce-without"></a>
 ## reduce-without
+**Example**  
+```js
+const without = require('reduce-without')
+```
 <a name="exp_module_reduce-without--without"></a>
 ### without(toRemove) ⇒ <code>Array</code> ⏏
-Returns a new array with the same content as the input minus the specified values. It accepts the same query syntax as [module:array-tools.where](module:array-tools.where).
+Returns a new array with the same content as the input minus the specified values.
 
 **Kind**: Exported function  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| toRemove | <code>Array</code> | the input array |
-|  | <code>any</code> &#124; <code>Array.&lt;any&gt;</code> | one, or more queries |
+| toRemove | <code>any</code> &#124; <code>Array.&lt;any&gt;</code> | one, or more [test-value](https://github.com/75lb/test-value) queries |
 
 **Example**  
 ```js
-> a.without([ 1, 2, 3 ], 2)
+> [ 1, 2, 3 ].reduce(without(2))
 [ 1, 3 ]
 
-> a.without([ 1, 2, 3 ], [ 2, 3 ])
+> [ 1, 2, 3 ].reduce(without([ 2, 3 ]))
 [ 1 ]
 
 > data = [
@@ -30,7 +33,7 @@ Returns a new array with the same content as the input minus the specified value
     { name: "Yana", age: 20 },
     { name: "Zhana", age: 10 }
 ]
-> a.without(data, { name: /ana/ })
+> data.reduce(without({ name: /ana/ }))
 []
 ```
 
